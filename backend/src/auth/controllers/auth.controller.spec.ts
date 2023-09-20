@@ -69,4 +69,18 @@ describe('AuthController', () => {
       expect(response).toHaveProperty('url', urlToRedirect);
     });
   });
+
+  describe('facebookAuthRedirect', () => {
+    it('should generate after-auth url with access token for ui', async () => {
+      when(mockedUserService.upsert(user as User)).thenResolve(user as User);
+      const userResponse = await mockedUserService.upsert(user as User);
+      when(mockedAuthService.handleLogin(userResponse)).thenReturn(accessToken);
+
+      const response = await controller.facebookAuthRedirect({ user });
+      const urlToRedirect = `${
+        getServerConfig().uiCallbackUrl
+      }?token=${accessToken}`;
+      expect(response).toHaveProperty('url', urlToRedirect);
+    });
+  });
 });

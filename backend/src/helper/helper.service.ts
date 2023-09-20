@@ -46,7 +46,7 @@ export class HelperService {
     try {
       return this.app.get<THelper, TResult>(helper);
     } catch (e) {
-      Logger.error(`Failed to retrieve helper [${helper}]. Error= ${e}`);
+      Logger.error(`Failed to retrieve helper [${helper}]`);
       throw new Error(`Helper [${helper}] not found.`);
     }
   }

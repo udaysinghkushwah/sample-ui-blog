@@ -3,7 +3,6 @@ import { Strategy, Profile } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
 import getServerConfig from '../../config/configurations/server.config';
 
-
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
   constructor() {
