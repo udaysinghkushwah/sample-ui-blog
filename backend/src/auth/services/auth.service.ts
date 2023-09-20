@@ -13,6 +13,8 @@ export class AuthService implements IAuthService {
 
   handleLogin(user: User): string {
     const payload = { email: user.email, sub: user._id };
-    return this.jwtService.sign(payload, { secret: getServerConfig().jwtSecretKey });
+    return this.jwtService.sign(payload, {
+      secret: getServerConfig().jwtSecretKey,
+    });
   }
 }

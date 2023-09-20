@@ -24,16 +24,16 @@ describe('AuthController', () => {
         {
           provide: AuthService,
           useValue: {
-            handleLogin: jest.fn().mockImplementation(() => accessToken)
-          }
+            handleLogin: jest.fn().mockImplementation(() => accessToken),
+          },
         },
         {
           provide: UserService,
           useValue: {
-            upsert: jest.fn().mockImplementation(() => Promise.resolve(user))
-          }
-        }
-      ]
+            upsert: jest.fn().mockImplementation(() => Promise.resolve(user)),
+          },
+        },
+      ],
     }).compile();
 
     controller = module.get<AuthController>(AuthController);
@@ -63,7 +63,9 @@ describe('AuthController', () => {
       when(mockedAuthService.handleLogin(userResponse)).thenReturn(accessToken);
 
       const response = await controller.googleAuthRedirect({ user });
-      const urlToRedirect = `${getServerConfig().uiCallbackUrl}?token=${accessToken}`;
+      const urlToRedirect = `${
+        getServerConfig().uiCallbackUrl
+      }?token=${accessToken}`;
       expect(response).toHaveProperty('url', urlToRedirect);
     });
   });

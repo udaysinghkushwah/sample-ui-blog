@@ -8,7 +8,7 @@ describe('JwtStrategy', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.forRoot({})],
-      providers: [JwtStrategy]
+      providers: [JwtStrategy],
     }).compile();
 
     service = module.get<JwtStrategy>(JwtStrategy);
@@ -22,7 +22,7 @@ describe('JwtStrategy', () => {
     it('should format data and move to next middleware', async () => {
       await service.validate({
         email: 'jameer@test.com',
-        sub: 'some-id'
+        sub: 'some-id',
       });
     });
   });

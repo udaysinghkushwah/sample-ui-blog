@@ -19,10 +19,10 @@ describe('AuthService', () => {
         {
           provide: JwtService,
           useValue: {
-            sign: jest.fn().mockImplementation(() => accessToken)
-          }
-        }
-      ]
+            sign: jest.fn().mockImplementation(() => accessToken),
+          },
+        },
+      ],
     }).compile();
 
     service = module.get<AuthService>(AuthService);
@@ -38,9 +38,15 @@ describe('AuthService', () => {
 
   describe('handleLogin', () => {
     it('should generate access token after auth', () => {
-      const payload = { email: 'jameer@test.com ', _id: '644af9095fabb9e3d0d76f54' };
+      const payload = {
+        email: 'jameer@test.com ',
+        _id: '644af9095fabb9e3d0d76f54',
+      };
       when(
-        mockedJwtService.sign({ email: payload.email, sub: payload._id }, { secret: getServerConfig().jwtSecretKey })
+        mockedJwtService.sign(
+          { email: payload.email, sub: payload._id },
+          { secret: getServerConfig().jwtSecretKey },
+        ),
       ).thenReturn(accessToken);
       const response = service.handleLogin(payload as User);
       expect(response).toEqual(accessToken);

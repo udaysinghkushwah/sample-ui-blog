@@ -8,7 +8,7 @@ describe('GoogleStrategy', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule.forRoot({})],
-      providers: [GoogleStrategy]
+      providers: [GoogleStrategy],
     }).compile();
 
     service = module.get<GoogleStrategy>(GoogleStrategy);
@@ -28,9 +28,9 @@ describe('GoogleStrategy', () => {
           emails: [{ value: 'jameer@test.com' }],
           provider: 'Google',
           id: 'some-id',
-          displayName: 'Jameer'
+          displayName: 'Jameer',
         },
-        jest.fn
+        jest.fn,
       );
     });
   });

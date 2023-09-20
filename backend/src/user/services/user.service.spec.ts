@@ -19,10 +19,10 @@ describe('UserService', () => {
           provide: UserRepository,
           useValue: {
             findOne: jest.fn().mockImplementation(() => Promise.resolve(user)),
-            upsert: jest.fn().mockImplementation(() => Promise.resolve(user))
-          }
-        }
-      ]
+            upsert: jest.fn().mockImplementation(() => Promise.resolve(user)),
+          },
+        },
+      ],
     }).compile();
 
     service = module.get<UserService>(UserService);

@@ -4,7 +4,7 @@ export interface ServerConfig {
   port: number;
   uiCallbackUrl: string;
   google: SocialLoginClient;
-  facebook:SocialLoginClient
+  facebook: SocialLoginClient;
   jwtSecretKey: string;
 }
 
@@ -15,24 +15,22 @@ interface SocialLoginClient {
 
 function getServerConfig(): ServerConfig {
   return {
-
     mongoUri: process.env.MONGO_URI,
-    host: process.env.HOST ,
+    host: process.env.HOST,
     port: parseInt(process.env.PORT || '8888', 10),
     uiCallbackUrl: process.env.UI_CALLBACK_URL,
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID ,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
-    
+
     facebook: {
       clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     },
-    jwtSecretKey: process.env.JWT_SECRET_KEY
+    jwtSecretKey: process.env.JWT_SECRET_KEY,
   };
 }
-
 
 export default getServerConfig;
 

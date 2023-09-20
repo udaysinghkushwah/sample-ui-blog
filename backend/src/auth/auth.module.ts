@@ -12,13 +12,13 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
 @Module({
   imports: [
     UserModule,
-    ConfigModule.forRoot({load: [getServerConfig]}),
+    ConfigModule.forRoot({ load: [getServerConfig] }),
     JwtModule.register({
       secret: getServerConfig().jwtSecretKey,
-      signOptions: { expiresIn: '1d' }
-    })
+      signOptions: { expiresIn: '1d' },
+    }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, GoogleStrategy,FacebookStrategy, JwtStrategy]
+  providers: [AuthService, GoogleStrategy, FacebookStrategy, JwtStrategy],
 })
 export class AuthModule {}

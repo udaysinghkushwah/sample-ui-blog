@@ -1,4 +1,11 @@
-import { Controller, Get, Inject, Redirect, Req, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Inject,
+  Redirect,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService, IAuthService } from '../services/auth.service';
 import { IUserService, UserService } from '../../user/services/user.service';
@@ -6,10 +13,9 @@ import getServerConfig from '../../config/configurations/server.config';
 
 @Controller('auth')
 export class AuthController {
-  
   constructor(
     @Inject(AuthService) private readonly authService: IAuthService,
-    @Inject(UserService) private readonly userService: IUserService
+    @Inject(UserService) private readonly userService: IUserService,
   ) {}
 
   @Get('google')

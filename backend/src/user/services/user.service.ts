@@ -1,6 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { User } from '../models/user.model';
-import { IUserRepository, UserRepository } from '../repositories/user.repository';
+import {
+  IUserRepository,
+  UserRepository,
+} from '../repositories/user.repository';
 
 export interface IUserService {
   findOne(id: string): Promise<User>;

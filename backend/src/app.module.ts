@@ -5,8 +5,11 @@ import { HelperModule } from './helper/helper.module';
 import { ConfigurationModule } from './config/config.module';
 
 @Module({
-  imports: [ ConfigurationModule,HelperModule,
-    HelperModule.registerHelpersAsync(),],
+  imports: [
+    ConfigurationModule,
+    HelperModule,
+    HelperModule.registerHelpersAsync(),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

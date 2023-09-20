@@ -1,5 +1,5 @@
 import { INestApplication, Injectable, Logger } from '@nestjs/common';
-import { ModuleRef } from '@nestjs/core'
+import { ModuleRef } from '@nestjs/core';
 
 interface Type<T = any> extends Function {
   new (...args: any[]): T;
@@ -26,7 +26,9 @@ export class HelperService {
    * ```
    * */
 
-  async getHelper<THelper = any, TResult = THelper>(helper: Type<THelper> | string): Promise<TResult> {
+  async getHelper<THelper = any, TResult = THelper>(
+    helper: Type<THelper> | string,
+  ): Promise<TResult> {
     try {
       let requestFor = helper;
       if (typeof helper === 'string') {
@@ -38,7 +40,9 @@ export class HelperService {
       return this.get<THelper, TResult>(helper);
     }
   }
-  async get<THelper = any, TResult = THelper>(helper: Type<THelper> | string): Promise<TResult> {
+  async get<THelper = any, TResult = THelper>(
+    helper: Type<THelper> | string,
+  ): Promise<TResult> {
     try {
       return this.app.get<THelper, TResult>(helper);
     } catch (e) {

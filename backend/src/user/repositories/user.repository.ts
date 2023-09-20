@@ -17,6 +17,8 @@ export class UserRepository implements IUserRepository {
   }
 
   async upsert(user: User): Promise<User> {
-    return await this.userModel.findOneAndUpdate({ email: user.email }, user, { upsert: true }).exec();
+    return await this.userModel
+      .findOneAndUpdate({ email: user.email }, user, { upsert: true })
+      .exec();
   }
 }

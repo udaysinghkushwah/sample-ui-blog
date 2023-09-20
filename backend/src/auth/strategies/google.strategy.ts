@@ -11,17 +11,24 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     super({
       clientID: getServerConfig().google.clientId,
       clientSecret: getServerConfig().google.clientSecret,
-      callbackURL: `http://${getServerConfig().host}:${getServerConfig().port}/auth/google/redirect`,
-      scope: ['email', 'profile']
+      callbackURL: `http://${getServerConfig().host}:${
+        getServerConfig().port
+      }/auth/google/redirect`,
+      scope: ['email', 'profile'],
     });
   }
 
-  async validate(accessToken: string, refreshToken: string, profile: Profile, done: VerifyCallback): Promise<void> {
+  async validate(
+    accessToken: string,
+    refreshToken: string,
+    profile: Profile,
+    done: VerifyCallback,
+  ): Promise<void> {
     const { name, emails } = profile;
     const user: SocialUserModel = {
       email: emails[0].value,
       accessToken,
-      name: name.givenName + ' ' + name.familyName
+      name: name.givenName + ' ' + name.familyName,
     };
     done(null, user);
   }

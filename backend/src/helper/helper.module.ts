@@ -2,12 +2,9 @@ import { DynamicModule, Logger, Module, Provider, Type } from '@nestjs/common';
 import { HelperService } from './helper.service';
 import { sync } from 'glob';
 
-
 @Module({
   imports: [],
-  providers: [
-    HelperService
-  ],
+  providers: [HelperService],
   exports: [HelperService],
 })
 export class HelperModule {
@@ -20,7 +17,9 @@ export class HelperModule {
       .map((path) => path.replace('src/', './../'))
       .map((path) => path.replace('.ts', ''));
     const helperProviders: Provider<any>[] = [];
-    const importedHelpers = await Promise.all(relativePathWithoutExt.map((path) => import(path)));
+    const importedHelpers = await Promise.all(
+      relativePathWithoutExt.map((path) => import(path)),
+    );
     importedHelpers.forEach((entry) => {
       //Assumption only 1-export
       // Might be different if you are using default export instead
@@ -38,7 +37,7 @@ export class HelperModule {
       exports: [...helperProviders, HelperService],
       global: true,
     };
-    
+
     Logger.log(DynamicModule, { depth: null });
     return DynamicModule;
   }

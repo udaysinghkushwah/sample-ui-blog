@@ -20,10 +20,10 @@ describe('UserRepository', () => {
           useValue: {
             findOneAndUpdate: jest.fn(),
             findById: jest.fn(),
-            exec: jest.fn()
-          }
-        }
-      ]
+            exec: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
     service = module.get<UserRepository>(UserRepository);
@@ -36,7 +36,7 @@ describe('UserRepository', () => {
 
   it('should return single user', async () => {
     jest.spyOn(model, 'findById').mockReturnValue({
-      exec: jest.fn().mockResolvedValueOnce(user)
+      exec: jest.fn().mockResolvedValueOnce(user),
     } as unknown as Query<User, User>);
     const response = await service.findOne(user._id);
     expect(response).toMatchObject(user);
@@ -44,7 +44,7 @@ describe('UserRepository', () => {
 
   it('should update an user successfully', async () => {
     jest.spyOn(model, 'findOneAndUpdate').mockReturnValue({
-      exec: jest.fn().mockResolvedValueOnce(user)
+      exec: jest.fn().mockResolvedValueOnce(user),
     } as unknown as Query<User, User>);
     const updated = await service.upsert(user);
     expect(updated).toMatchObject(user);
