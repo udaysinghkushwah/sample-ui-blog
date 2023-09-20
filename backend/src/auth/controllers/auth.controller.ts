@@ -6,6 +6,7 @@ import getServerConfig from '../../config/configurations/server.config';
 
 @Controller('auth')
 export class AuthController {
+  
   constructor(
     @Inject(AuthService) private readonly authService: IAuthService,
     @Inject(UserService) private readonly userService: IUserService

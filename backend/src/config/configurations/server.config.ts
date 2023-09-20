@@ -16,13 +16,13 @@ interface SocialLoginClient {
 function getServerConfig(): ServerConfig {
   return {
 
-    mongoUri: process.env.MONGODB_URI||'mongodb+srv://udaysinghkushwah:sentinel@cluster0.kzvfoaj.mongodb.net/my-blog?retryWrites=true&w=majority',
+    mongoUri: process.env.MONGODB_URI,
     host: process.env.HOST || 'localhost',
-    port: parseInt(process.env.PORT || '3000', 10),
-    uiCallbackUrl: process.env.UI_CALLBACK_URL || 'http://localhost:4200/auth/callback',
+    port: parseInt(process.env.PORT || '8888', 10),
+    uiCallbackUrl: process.env.UI_CALLBACK_URL,
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID || '661986408367-o4dnvji4m2ocrhu9qddf8i6sod96vl4d.apps.googleusercontent.com',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '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'
+      clientId: process.env.GOOGLE_CLIENT_ID ,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     },
     facebook: {
       clientId: "1790600171388212",

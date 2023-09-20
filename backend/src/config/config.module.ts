@@ -5,6 +5,6 @@ import getServerConfig from './configurations/server.config';
 import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({}), MongooseModule.forRoot(getServerConfig().mongoUri), AuthModule]
+  imports: [ConfigModule.forRoot({load: [getServerConfig]}), MongooseModule.forRoot(getServerConfig().mongoUri), AuthModule]
 })
 export class ConfigurationModule {}
