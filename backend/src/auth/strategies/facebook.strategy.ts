@@ -7,6 +7,7 @@ import { SocialUserModel } from '../models/social-user.model';
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
   constructor() {
+    console.log(getServerConfig())
     super({
       clientID: getServerConfig().facebook.clientId,
       clientSecret: getServerConfig().facebook.clientSecret,

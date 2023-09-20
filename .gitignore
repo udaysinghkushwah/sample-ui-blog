@@ -1,0 +1,2 @@
+/backend/*.env
+/dummy-data-generator/node_modules

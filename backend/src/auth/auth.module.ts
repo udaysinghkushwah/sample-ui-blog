@@ -12,7 +12,7 @@ import { FacebookStrategy } from './strategies/facebook.strategy';
 @Module({
   imports: [
     UserModule,
-    ConfigModule.forRoot({}),
+    ConfigModule.forRoot({load: [getServerConfig]}),
     JwtModule.register({
       secret: getServerConfig().jwtSecretKey,
       signOptions: { expiresIn: '1d' }

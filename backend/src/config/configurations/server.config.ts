@@ -16,21 +16,23 @@ interface SocialLoginClient {
 function getServerConfig(): ServerConfig {
   return {
 
-    mongoUri: process.env.MONGODB_URI,
-    host: process.env.HOST || 'localhost',
+    mongoUri: process.env.MONGO_URI,
+    host: process.env.HOST ,
     port: parseInt(process.env.PORT || '8888', 10),
     uiCallbackUrl: process.env.UI_CALLBACK_URL,
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID ,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     },
+    
     facebook: {
-      clientId: "1790600171388212",
-      clientSecret: "6c4213196099a6b6bdfe9fa89a5b1f27"
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
     },
     jwtSecretKey: process.env.JWT_SECRET_KEY
   };
 }
+
 
 export default getServerConfig;
 
