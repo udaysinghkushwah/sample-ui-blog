@@ -3,7 +3,9 @@ import { AppModule } from './app.module';
 import getServerConfig from './config/configurations/server.config';
 import { HelperModule } from './helper/helper.module';
 import { HelperService } from './helper/helper.service';
+import * as dotenv from "dotenv";
 
+dotenv.config();
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   app.enableCors();

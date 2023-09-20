@@ -38,6 +38,7 @@ export class HelperModule {
       exports: [...helperProviders, HelperService],
       global: true,
     };
+    
     Logger.log(DynamicModule, { depth: null });
     return DynamicModule;
   }

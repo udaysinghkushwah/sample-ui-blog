@@ -8,8 +8,10 @@ import { environment } from '../../environments/environment';
 })
 export class LoginComponent {
   googleAuthUrl: string;
+  facebookUrl:string | undefined;
 
   constructor() {
     this.googleAuthUrl = environment.apiBaseUrl + '/auth/google';
+    this.facebookUrl = environment.apiBaseUrl + '/auth/facebook';
   }
 }
