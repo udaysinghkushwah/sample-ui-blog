@@ -1,2 +1,2 @@
 # sample-blog
-created initial blog repo
+created initial blog repository
