@@ -1,2 +1,2 @@
-# sample-ui-blog
-created initial ui blog
+# sample-blog
+created initial blog repo
