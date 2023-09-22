@@ -2,6 +2,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, Profile } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
 import getServerConfig from '../../config/configurations/server.config';
+import { SocialUserModel } from '../models/social-user.model';
 
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
@@ -25,16 +26,12 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     done: (err: any, user: any, info?: any) => void,
   ): Promise<any> {
     const { name, emails } = profile;
-    const user = {
+    const user: SocialUserModel = {
       email: emails[0].value,
-      firstName: name.givenName,
-      lastName: name.familyName,
-    };
-    const payload = {
-      user,
       accessToken,
+      name: name.givenName + ' ' + name.familyName,
     };
+    done(null, user);
 
-    done(null, payload);
   }
 }

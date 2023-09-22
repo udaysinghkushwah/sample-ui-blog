@@ -21,7 +21,7 @@ describe('JwtStrategy', () => {
   describe('validate', () => {
     it('should format data and move to next middleware', async () => {
       await service.validate({
-        email: 'jameer@test.com',
+        email: 'udayk@yopmail.com',
         sub: 'some-id',
       });
     });

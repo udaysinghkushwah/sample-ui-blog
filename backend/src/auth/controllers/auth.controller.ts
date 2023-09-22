@@ -45,5 +45,6 @@ export class AuthController {
     const insertedUser = await this.userService.upsert(req.user);
     const accessToken = this.authService.handleLogin(insertedUser);
     return { url: `${getServerConfig().uiCallbackUrl}?token=${accessToken}` };
+   
   }
 }

@@ -39,7 +39,7 @@ describe('AuthService', () => {
   describe('handleLogin', () => {
     it('should generate access token after auth', () => {
       const payload = {
-        email: 'jameer@test.com ',
+        email: 'udayk@yopmail.com ',
         _id: '644af9095fabb9e3d0d76f54',
       };
       when(

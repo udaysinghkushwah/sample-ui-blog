@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import getServerConfig from '../../config/configurations/server.config';
 
 const authorId = '644af9095fabb9e3d0d76f54';
-const user = { name: 'Jameer', _id: authorId };
+const user = { name: 'udayk', _id: authorId };
 const accessToken = 'some jwt access token';
 
 describe('AuthController', () => {
@@ -50,10 +50,14 @@ describe('AuthController', () => {
 
   it('should should be defined', () => {
     expect(controller.googleAuth).toBeDefined();
+    expect(controller.facebookAuth).toBeDefined();
   });
+
+  
 
   it('should make a dummy call', () => {
     controller.googleAuth();
+    controller.facebookAuth();
   });
 
   describe('googleAuthRedirect', () => {

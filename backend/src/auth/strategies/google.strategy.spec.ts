@@ -24,11 +24,11 @@ describe('GoogleStrategy', () => {
         'some-token',
         '',
         {
-          name: { givenName: 'Jameer', familyName: 'Khan' },
-          emails: [{ value: 'jameer@test.com' }],
+          name: { givenName: 'uday', familyName: 'kushwah' },
+          emails: [{ value: 'udayk@yopmail.com' }],
           provider: 'Google',
           id: 'some-id',
-          displayName: 'Jameer',
+          displayName: 'Udayk',
         },
         jest.fn,
       );

@@ -25,11 +25,11 @@ describe('FacebookStrategy', () => {
         'some-token',
         '',
         {
-          name: { givenName: 'Jameer', familyName: 'Khan' },
-          emails: [{ value: 'jameer@test.com' }],
+          name: { givenName: 'uday', familyName: 'kushwah' },
+          emails: [{ value: 'udayk@yopmail.com' }],
           provider: 'Facebook',
           id: 'some-id',
-          displayName: 'Jameer',
+          displayName: 'udayk',
         },
         jest.fn,
       );

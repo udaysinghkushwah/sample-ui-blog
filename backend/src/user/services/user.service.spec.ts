@@ -5,7 +5,7 @@ import { User } from '../models/user.model';
 import { mock, when } from 'ts-mockito';
 
 const authorId = '644af9095fabb9e3d0d76f54';
-const user = { name: 'Jameer', _id: authorId } as User;
+const user = { name: 'Uday', _id: authorId } as User;
 
 describe('UserService', () => {
   let service: UserService;

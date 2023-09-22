@@ -5,7 +5,7 @@ import { Model, Query } from 'mongoose';
 import { User } from '../models/user.model';
 
 const authorId = '644af9095fabb9e3d0d76f54';
-const user = { name: 'Jameer', _id: authorId } as User;
+const user = { name: 'Uday', _id: authorId } as User;
 
 describe('UserRepository', () => {
   let service: UserRepository;
