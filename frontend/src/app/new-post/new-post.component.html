@@ -1,45 +1,104 @@
-<div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <a routerLink="/dashboard">Back to dashboard</a>
-        <h4 class="card-title">Create post</h4>
-        <form [formGroup]="blogForm">
-          <div class="form-group">
-            <label>Title</label>
-            <input type="text" class="form-control" formControlName="title" placeholder="Enter Title" />
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Post</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
 
-          <div class="form-group">
-            <label>Content</label>
-            <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
-            <ngx-editor
-              [editor]="editor"
-              data-testid="sample-input-hover-click"
-              [placeholder]="'Type Content here...'"
-              formControlName="body"
-            ></ngx-editor>
-          </div>
+    .container {
+      padding: 20px;
+    }
 
-          <div formGroupName="category" class="form-group">
-            <label>Category</label>
-            <input type="text" class="form-control" formControlName="name" placeholder="Enter Category" />
-          </div>
+    .card {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
 
-          <div formArrayName="tags">
-            <label>Tags</label>
-            <div *ngFor="let user of tags.controls; index as idx">
-              <div [formGroupName]="idx">
-                <input class="form-control" formControlName="name" placeholder="Enter Tag" />
+    .card-title {
+      color: #333333;
+    }
+
+    label {
+      color: #555555;
+    }
+
+    .form-control {
+      background-color: #f8f8f8;
+      border: 1px solid #dddddd;
+      color: #333333;
+    }
+
+    .btn-secondary {
+      background-color: #888888;
+      color: #ffffff;
+    }
+
+    .btn-secondary:hover {
+      background-color: #666666;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <a routerLink="/dashboard">Back to dashboard</a>
+            <h4 class="card-title">Create post</h4>
+            <form [formGroup]="blogForm">
+              <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" formControlName="title" placeholder="Enter Title" />
               </div>
-            </div>
-            <button (click)="addTag()" class="btn btn-secondary" type="button">Add Tag</button>
+
+              <div class="form-group">
+                <label>Content</label>
+                <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+                <ngx-editor
+                  [editor]="editor"
+                  data-testid="sample-input-hover-click"
+                  [placeholder]="'Type Content here...'"
+                  formControlName="body"
+                ></ngx-editor>
+              </div>
+
+              <div formGroupName="category" class="form-group">
+                <label>Category</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter Category" />
+              </div>
+
+              <div formArrayName="tags">
+                <label>Tags</label>
+                <div *ngFor="let user of tags.controls; index as idx">
+                  <div [formGroupName]="idx">
+                    <input class="form-control" formControlName="name" placeholder="Enter Tag" />
+                  </div>
+                </div>
+              </div>
+              <button (click)="addTag()" class="btn btn-secondary" type="button">Add Tag</button>
+              <button (click)="createPost()" class="btn btn-primary ms-1" type="submit">Create</button>
+            </form>
           </div>
-          <button (click)="createPost()" class="btn btn-primary" type="submit">Submit</button>
-        </form>
+        </div>
       </div>
+      <div class="col-md-3"></div>
     </div>
   </div>
-  <div class="col-md-3"></div>
-</div>
+</body>
+</html>
