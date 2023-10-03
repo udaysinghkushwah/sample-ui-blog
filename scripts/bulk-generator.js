@@ -3,7 +3,7 @@ const { generateTitle, generateBody, generateCategory, generateTag, convertToSlu
 const blogModel = require('./schemas/blog.schema')
 
 mongoose
-  .connect('mongodb+srv://udaysinghkushwah:sentinel@cluster0.kzvfoaj.mongodb.net/uday-blog?retryWrites=true&w=majority')
+  .connect('mongodb://localhost/uday-blog')
   .then(() => {
     console.log('Connected to Database...')
 
