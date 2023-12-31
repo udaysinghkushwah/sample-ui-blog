@@ -16,7 +16,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve the Angular app using Nginx
-FROM nginx:alpine
+FROM nginx:1.25.3-alpine3.18
 
 # Copy the built Angular app from the previous stage
 COPY --from=build /app/dist/frontend /usr/share/nginx/html
