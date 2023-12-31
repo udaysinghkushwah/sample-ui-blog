@@ -21,7 +21,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0",
-    "@auth0/angular-jwt": "^5.1.2",
+    "@auth0/angular-jwt": "^5.2.0",
     "bootstrap": "^5.2.3",
     "ngx-editor": "^15.3.0"
   },
