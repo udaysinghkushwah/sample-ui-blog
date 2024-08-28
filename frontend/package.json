@@ -23,7 +23,7 @@
     "zone.js": "~0.13.0",
     "@auth0/angular-jwt": "^5.2.0",
     "bootstrap": "^5.2.3",
-    "ngx-editor": "^15.3.0"
+    "ngx-editor": "^17.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.3",
